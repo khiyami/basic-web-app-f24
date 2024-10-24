@@ -24,6 +24,12 @@ export default function QueryProcessor(query: string): string {
     const result = num1 + num2;
     return result.toString();
   }
+  const largestMatch = query.match(/Which of the following numbers is the largest: (.*)\?/);
+  if (largestMatch) {
+    const numbers = largestMatch[1].split(',').map(num => parseInt(num.trim(), 10));
+    const largest = Math.max(...numbers);
+    return largest.toString();
+  }
   
 
   return "";
