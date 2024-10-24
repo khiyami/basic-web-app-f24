@@ -12,7 +12,7 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "yalkhiya" );
   }
-  if (query.includes("what is your name?")) {
+  if (query.includes("What is your name?")) {
     //TODO add your Andrew ID below
     //TODO update the corresponding test case in __tests__
     return ( "yalkhiya-313" );
