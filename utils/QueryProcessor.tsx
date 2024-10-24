@@ -43,10 +43,17 @@ export default function QueryProcessor(query: string): string {
     return result ? result.toString() : "None";
   }
 
+  const primeMatch = query.match(/Which of the following numbers are primes: (.*)\?/);
+  if (primeMatch) {
+    const numbers = primeMatch[1].split(',').map(num => parseInt(num.trim(), 10));
+    const primes = numbers.filter(isPrime).join(', ');
+    return primes || "None";
+  }
+
   return "";
 }
 
-// Helper functions
+// Helper Functions
 function isSquare(num: number): boolean {
   const sqrt = Math.sqrt(num);
   return sqrt === Math.floor(sqrt);
@@ -55,4 +62,12 @@ function isSquare(num: number): boolean {
 function isCube(num: number): boolean {
   const cbrt = Math.cbrt(num);
   return cbrt === Math.floor(cbrt);
+}
+
+function isPrime(num: number): boolean {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
 }

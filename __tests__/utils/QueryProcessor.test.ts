@@ -42,6 +42,18 @@ describe("QueryProcessor", () => {
         expect(response).toBe("702");
     });
 
+    test("should return prime numbers", () => {
+        const query = "Which of the following numbers are primes: 11, 47, 70, 29, 82?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("11, 47, 29");
+    });
+
+    test("should return no primes if none are found", () => {
+        const query = "Which of the following numbers are primes: 4, 6, 8, 10?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("None");
+    });
+
     test("should return the largest number", () => {
         const query = "Which of the following numbers is the largest: 63, 97, 25?";
         const response: string = QueryProcessor(query);
