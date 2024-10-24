@@ -17,5 +17,14 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "yalkhiya-313" );
   }
+  const match = query.match(/What is (\d+) plus (\d+)\?/);
+  if (match) {
+    const num1 = parseInt(match[1], 10);
+    const num2 = parseInt(match[2], 10);
+    const result = num1 + num2;
+    return result.toString();
+  }
+  
+
   return "";
 }
