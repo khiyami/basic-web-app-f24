@@ -36,15 +36,21 @@ describe("QueryProcessor", () => {
         expect(response).toBe("150");
     });
 
-    test("should handle different numbers", () => {
-        const query = "What is 42 plus 58?";
+    test("should return the product of two numbers", () => {
+        const query = "What is 9 multiplied by 78?";
         const response: string = QueryProcessor(query);
-        expect(response).toBe("100");
+        expect(response).toBe("702");
     });
-    
+
     test("should return the largest number", () => {
         const query = "Which of the following numbers is the largest: 63, 97, 25?";
         const response: string = QueryProcessor(query);
         expect(response).toBe("97");
+    });
+
+    test("should return the square and cube number", () => {
+        const query = "Which of the following numbers is both a square and a cube: 8, 3616, 1296, 2069, 381, 1260, 64?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("64");
     });
 });
