@@ -60,6 +60,18 @@ describe("QueryProcessor", () => {
         expect(response).toBe("97");
     });
 
+    test("should return the difference of two numbers", () => {
+        const query = "What is 11 minus 36?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("-25");
+    });
+
+    test("should handle positive subtraction", () => {
+        const query = "What is 50 minus 20?";
+        const response = QueryProcessor(query);
+        expect(response).toBe("30");
+    });
+
     test("should return the square and cube number", () => {
         const query = "Which of the following numbers is both a square and a cube: 8, 3616, 1296, 2069, 381, 1260, 64?";
         const response: string = QueryProcessor(query);
